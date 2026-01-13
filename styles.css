@@ -218,12 +218,14 @@ body {
 .btn-secondary {
     background: var(--color-light);
     color: var(--color-dark);
+    box-shadow:0 4px 15px rgb(18, 18, 20, 0.3);
 }
 
 .btn-secondary:hover {
-    background: #f5d800;
+    background: var(--color-dark);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(254, 230, 18, 0.4);
+    box-shadow: 0 6px 20px rgb(18, 18, 20, 0.4);
+    color: var(--color-light);
 }
 
 .hero-stats {
@@ -565,6 +567,7 @@ body {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
     border: 2px solid transparent;
+    text-decoration: none;
 }
 
 .patrocinador-card:hover {
