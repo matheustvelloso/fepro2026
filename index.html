@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FEPRO 2026 - Feira de Promoção - Nova Friburgo</title>
+    <link rel="icon" href="images/FeproLogo.jpg" type="image/jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -27,7 +29,7 @@
                         <span></span>
                     </button>
                     <ul class="nav-menu">
-                        <li><a href="#home" class="nav-link active">FEPRO 2026</a></li>
+                        <li><a href="#home" class="nav-link active">Página inicial</a></li>
                         <li><a href="#horarios" class="nav-link">Horários</a></li>
                         <li><a href="#programacao" class="nav-link">Programação</a></li>
                         <li><a href="#expositores" class="nav-link">Expositores</a></li>
@@ -60,12 +62,12 @@
             </div>
             <div class="hero-stats">
                 <div class="stat-card">
-                    <div class="stat-number">70+</div>
+                    <div class="stat-number">80+</div>
                     <div class="stat-label">Expositores</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Palestras</div>
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Ofertas</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">40K+</div>
@@ -118,9 +120,9 @@
                 <h3>Informações Importantes</h3>
                 <ul>
                     <li>Entrada permitida até 1 hora antes do encerramento</li>
-                    <li>Credenciamento disponível a partir das 8:00</li>
-                    <li>Estacionamento disponível no local</li>
-                    <li>Alimentação disponível no evento</li>
+                    <li>Gratuidade para idosos e crianças até 12 anos</li>
+                    <li>Menores somente sob o acompanhamento de um responsável</li>
+                    <li>Praça de alimentação disponível no evento</li>
                 </ul>
             </div>
         </div>
@@ -137,12 +139,25 @@
                 <button class="tab-btn active" data-day="dia1">08 de Abril</button>
                 <button class="tab-btn" data-day="dia2">09 de Abril</button>
                 <button class="tab-btn" data-day="dia3">10 de Abril</button>
-                <button class="tab-btn" data-day="dia3">11 de Abril</button>
-                <button class="tab-btn" data-day="dia3">12 de Abril</button>
+                <button class="tab-btn" data-day="dia4">11 de Abril</button>
+                <button class="tab-btn" data-day="dia5">12 de Abril</button>
             </div>
             <div class="programacao-content">
                 <div class="tab-content active" id="dia1">
-                    <div class="programacao-item">
+                    <div class="programacao-item programacao-locked">
+                        <div class="programacao-time">--:--</div>
+                        <div class="programacao-details">
+                            <h3>Atração a confirmar</h3>
+                            <p>Horários e detalhes em breve</p>
+                            <span class="programacao-type">Em breve</span>
+                        </div>
+                    
+                        <div class="lock-overlay">
+                            <span class="lock-icon">🔒</span>
+                            <span class="lock-text">Programação em breve</span>
+                        </div>
+                    </div>                    
+                    <!-- <div class="programacao-item">
                         <div class="programacao-time">09:00 - 10:00</div>
                         <div class="programacao-details">
                             <h3>Cerimônia de Abertura</h3>
@@ -173,10 +188,23 @@
                             <p>Auditório Principal</p>
                             <span class="programacao-type">Painel</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="tab-content" id="dia2">
-                    <div class="programacao-item">
+                    <div class="programacao-item programacao-locked">
+                        <div class="programacao-time">--:--</div>
+                        <div class="programacao-details">
+                            <h3>Atração a confirmar</h3>
+                            <p>Horários e detalhes em breve</p>
+                            <span class="programacao-type">Em breve</span>
+                        </div>
+                    
+                        <div class="lock-overlay">
+                            <span class="lock-icon">🔒</span>
+                            <span class="lock-text">Programação em breve</span>
+                        </div>
+                    </div>
+                    <!-- <div class="programacao-item">
                         <div class="programacao-time">09:00 - 10:30</div>
                         <div class="programacao-details">
                             <h3>Palestra: Liderança e Gestão</h3>
@@ -207,10 +235,23 @@
                             <p>Área de Networking</p>
                             <span class="programacao-type">Networking</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="tab-content" id="dia3">
-                    <div class="programacao-item">
+                    <div class="programacao-item programacao-locked">
+                        <div class="programacao-time">--:--</div>
+                        <div class="programacao-details">
+                            <h3>Atração a confirmar</h3>
+                            <p>Horários e detalhes em breve</p>
+                            <span class="programacao-type">Em breve</span>
+                        </div>
+                    
+                        <div class="lock-overlay">
+                            <span class="lock-icon">🔒</span>
+                            <span class="lock-text">Programação em breve</span>
+                        </div>
+                    </div>
+                    <!-- <div class="programacao-item">
                         <div class="programacao-time">09:00 - 10:30</div>
                         <div class="programacao-details">
                             <h3>Palestra: Futuro do Trabalho</h3>
@@ -232,8 +273,86 @@
                             <h3>Premiação e Encerramento</h3>
                             <p>Auditório Principal</p>
                             <span class="programacao-type">Cerimônia</span>
+                        </div> 
+                    </div> -->
+                </div>
+                <div class="tab-content" id="dia4">
+                    <div class="programacao-item programacao-locked">
+                        <div class="programacao-time">--:--</div>
+                        <div class="programacao-details">
+                            <h3>Atração a confirmar</h3>
+                            <p>Horários e detalhes em breve</p>
+                            <span class="programacao-type">Em breve</span>
+                        </div>
+                    
+                        <div class="lock-overlay">
+                            <span class="lock-icon">🔒</span>
+                            <span class="lock-text">Programação em breve</span>
                         </div>
                     </div>
+                    <!-- <div class="programacao-item">
+                        <div class="programacao-time">09:00 - 10:30</div>
+                        <div class="programacao-details">
+                            <h3>Palestra: Futuro do Trabalho</h3>
+                            <p>Auditório Principal - Palestrante: Dra. Paula Oliveira</p>
+                            <span class="programacao-type">Palestra</span>
+                        </div>
+                    </div>
+                    <div class="programacao-item">
+                        <div class="programacao-time">11:00 - 12:30</div>
+                        <div class="programacao-details">
+                            <h3>Workshop: Design Thinking</h3>
+                            <p>Sala B - Facilitador: Lucas Ferreira</p>
+                            <span class="programacao-type">Workshop</span>
+                        </div>
+                    </div>
+                    <div class="programacao-item">
+                        <div class="programacao-time">14:00 - 15:00</div>
+                        <div class="programacao-details">
+                            <h3>Premiação e Encerramento</h3>
+                            <p>Auditório Principal</p>
+                            <span class="programacao-type">Cerimônia</span>
+                        </div> 
+                    </div> -->
+                </div>
+                <div class="tab-content" id="dia5">
+                    <div class="programacao-item programacao-locked">
+                        <div class="programacao-time">--:--</div>
+                        <div class="programacao-details">
+                            <h3>Atração a confirmar</h3>
+                            <p>Horários e detalhes em breve</p>
+                            <span class="programacao-type">Em breve</span>
+                        </div>
+                    
+                        <div class="lock-overlay">
+                            <span class="lock-icon">🔒</span>
+                            <span class="lock-text">Programação em breve</span>
+                        </div>
+                    </div>
+                    <!-- <div class="programacao-item">
+                        <div class="programacao-time">09:00 - 10:30</div>
+                        <div class="programacao-details">
+                            <h3>Palestra: Futuro do Trabalho</h3>
+                            <p>Auditório Principal - Palestrante: Dra. Paula Oliveira</p>
+                            <span class="programacao-type">Palestra</span>
+                        </div>
+                    </div>
+                    <div class="programacao-item">
+                        <div class="programacao-time">11:00 - 12:30</div>
+                        <div class="programacao-details">
+                            <h3>Workshop: Design Thinking</h3>
+                            <p>Sala B - Facilitador: Lucas Ferreira</p>
+                            <span class="programacao-type">Workshop</span>
+                        </div>
+                    </div>
+                    <div class="programacao-item">
+                        <div class="programacao-time">14:00 - 15:00</div>
+                        <div class="programacao-details">
+                            <h3>Premiação e Encerramento</h3>
+                            <p>Auditório Principal</p>
+                            <span class="programacao-type">Cerimônia</span>
+                        </div> 
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -307,11 +426,11 @@
                     </div>
                     <h3 class="patrocinador-tier">Energisa</h3>
                 </a>
-                <a href="https://www.instagram.com/acianf/" class="patrocinador-card" target="_blank" rel="nonoopener noreferrer">
+                <a href="https://www.instagram.com/sicredi/" class="patrocinador-card" target="_blank" rel="nonoopener noreferrer">
                     <div class="patrocinador-logo">
-                        <img src="images/AcianfLogo.png" alt="Acianf" width="100%">
+                        <img src="images/SicrediLogo.png" alt="Sicredi" width="100%">
                     </div>
-                    <h3 class="patrocinador-tier">Acianf</h3>
+                    <h3 class="patrocinador-tier">Sicredi</h3>
                 </a>
                 <a href="https://www.instagram.com/unimedserranarj/" class="patrocinador-card" target="_blank" rel="nonoopener noreferrer">
                     <div class="patrocinador-logo">
@@ -417,10 +536,27 @@
                     <h4>Contato</h4>
                     <p>Email: teia@teiadeeventos.com.br</p>
                     <p>Telefone: (22) 2522-6942</p>
+                    <span>*Atendimento de Seg. a Sex. - 8:30 ás 18:00</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/fepronovafriburgo/" target="_blank" aria-label="Instagram" rel="nonoopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    
+                        <a href="https://www.facebook.com/fepronovafriburgo/" target="_blank" aria-label="Facebook" rel="nonoopener noreferrer">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    
+                        <a href="https://wa.me/552225224969" target="_blank" aria-label="WhatsApp" rel="nonoopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>                    
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 FEPRO. Todos os direitos reservados à Âmbar Produções LTDA - CNPJ: 04.859.743/0001-72 - Nova Friburgo - RJ</p>
+                <p>&copy; 2026 FEPRO. Todos os direitos reservados à Âmbar Produções LTDA</p>
             </div>
         </div>
     </footer>
