@@ -126,16 +126,26 @@ body {
     transition: var(--transition);
 }
 
+/* Background Section */
+.background-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('images/BackGround.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
 /* Hero Section */
 .hero-section {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark) 75%);
-    /* background-image: url('BackGround.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
+    background: var(--color-light);
     padding-top: 80px;
     position: relative;
     overflow: hidden;
@@ -173,14 +183,14 @@ body {
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: var(--color-light);
+    color: var(--color-dark);
     margin-bottom: 1.5rem;
     font-weight: 500;
 }
 
 .hero-description {
     font-size: 1.1rem;
-    color: var(--color-light);
+    color: var(--color-dark);
     margin-bottom: 2.5rem;
     line-height: 1.8;
 }
