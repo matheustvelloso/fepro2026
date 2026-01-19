@@ -223,13 +223,13 @@ body {
 .btn-primary {
     background: var(--color-primary);
     color: white;
-    box-shadow: 0 4px 15px rgba(68, 160, 61, 0.3);
+    border: 2px solid var(--color-primary);
 }
 
 .btn-primary:hover {
-    background: var(--color-secondary);
+    background: transparent;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(68, 160, 61, 0.4);
+    color: var(--color-primary);
 }
 
 .btn-secondary {
