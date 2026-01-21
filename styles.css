@@ -144,6 +144,7 @@ body {
     background-position: center center;     /* centraliza a imagem */
     background-repeat: no-repeat;
     margin-top: 70px;
+    overflow: hidden;
 }
 
 /* Hero Section */
