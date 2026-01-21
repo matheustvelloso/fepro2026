@@ -49,6 +49,24 @@ body {
     transition: var(--transition);
 }
 
+/* Overlay do menu mobile */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+}
+
+/* Overlay ativo */
+.menu-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
 .navbar {
     padding: 1rem 0;
 }
@@ -962,6 +980,7 @@ img {
         gap: 1rem;
         transform: translateX(100%);
         transition: transform 0.3s ease;
+        z-index: 1001;
     }
 
     .nav-menu.active {
