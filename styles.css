@@ -703,6 +703,10 @@ img {
     margin-bottom: 1rem;
 }
 
+.partners-logo-filter {
+    filter: drop-shadow(0 0 1px rgba(0,0,0));
+}
+
 .partners-logo img {
     max-width: 100%;
     max-height: 100%;
@@ -965,6 +969,11 @@ img {
 
 .social-links a[aria-label="WhatsApp"]:hover {
     background: #25D366;
+}
+
+.creator-profile-link {
+    text-decoration: none;
+    color: var(--color-accent1);
 }
 
 /* Responsive Design */
