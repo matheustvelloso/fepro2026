@@ -1041,7 +1041,7 @@ img {
 
 @media (max-width: 575px) { 
     .hero-section {
-        min-height: 55vh;
+        min-height: 45vh;
     }
 }
 
