@@ -962,7 +962,7 @@ img {
 /* Responsive Design */
 
 @media (max-width: 1024px) {
- .banner-section { 
+ .hero-section { 
     background-size: contain;
  }
 }
@@ -1032,7 +1032,7 @@ img {
         text-align: center;
     }
 
-    .banner-section {
+    .hero-section {
         background-image: url(images/BannerMobileSecondary.png);
         min-height: 75vh;
         background-size: cover;
@@ -1040,7 +1040,7 @@ img {
 }
 
 @media (max-width: 575px) { 
-    .banner-section {
+    .hero-section {
         min-height: 55vh;
     }
 }
