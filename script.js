@@ -2,6 +2,7 @@
 const menuToggle = document.querySelector('.mobile-menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const overlay = document.getElementById('menuOverlay');
+const navLinks = document.querySelectorAll('.nav-link');
 
 menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
@@ -16,11 +17,12 @@ overlay.addEventListener('click', () => {
     menuToggle.classList.remove('active');
 });
 // Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-link');
+
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
+        overlay.classList.remove('active');
+        menuToggle.classList.remove('active');
     });
 });
 
