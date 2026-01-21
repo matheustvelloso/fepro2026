@@ -150,8 +150,8 @@ body {
     transition: var(--transition);
 }
 
-/* Banner Section */
-.banner-section{ 
+/* Hero Section */
+.hero-section{ 
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -168,8 +168,8 @@ img {
     width: 100%;
 }
 
-/* Hero Section */
-.hero-section {
+/* About Section */
+.about-section {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -179,7 +179,7 @@ img {
     overflow: hidden;
 }
 
-.hero-section::before {
+.about-section::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -190,13 +190,13 @@ img {
     border-radius: 50%;
 }
 
-.hero-content {
+.about-content {
     position: relative;
     z-index: 1;
     max-width: 700px;
 }
 
-.hero-title {
+.about-title {
     font-size: 4.5rem;
     font-weight: 800;
     line-height: 1.1;
@@ -204,26 +204,26 @@ img {
     color: var(--color-dark);
 }
 
-.hero-title .highlight {
+.about-title .highlight {
     color: var(--color-primary);
     display: block;
 }
 
-.hero-subtitle {
+.about-subtitle {
     font-size: 1.5rem;
     color: var(--color-dark);
     margin-bottom: 1.5rem;
     font-weight: 500;
 }
 
-.hero-description {
+.about-description {
     font-size: 1.1rem;
     color: var(--color-dark);
     margin-bottom: 2.5rem;
     line-height: 1.8;
 }
 
-.hero-buttons {
+.about-buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
@@ -266,7 +266,7 @@ img {
     color: var(--color-light);
 }
 
-.hero-stats {
+.about-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
@@ -325,18 +325,18 @@ img {
 }
 
 /* Horários Section */
-.horarios-section {
+.schedule-section {
     background: white;
 }
 
-.horarios-grid {
+.schedule-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
 
-.horario-card {
+.schedule-card {
     background: rgb(0, 168, 235, 0.7);
     color: white;
     padding: 2.5rem;
@@ -346,31 +346,31 @@ img {
     transition: var(--transition);
 }
 
-.horario-card:hover {
+.schedule-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 40px rgb(226, 111, 44, 0.3);
 }
 
-.horario-day {
+.schedule-day {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     opacity: 0.9;
 }
 
-.horario-date {
+.schedule-date {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
-.horario-time {
+.schedule-time {
     font-size: 2rem;
     font-weight: 800;
     margin-bottom: 1rem;
 }
 
-.horario-desc {
+.schedule-desc {
     font-size: 0.95rem;
     opacity: 0.9;
     line-height: 1.6;
@@ -409,12 +409,12 @@ img {
     font-weight: bold;
 }
 
-/* Programação Section */
-.programacao-section {
+/* Agenda Section */
+.agenda-section {
     background: var(--color-light);
 }
 
-.programacao-tabs {
+.agenda-tabs {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -452,7 +452,7 @@ img {
     display: block;
 }
 
-.programacao-item {
+.agenda-item {
     background: white;
     padding: 2rem;
     border-radius: 12px;
@@ -463,34 +463,34 @@ img {
     transition: var(--transition);
 }
 
-.programacao-item:hover {
+.agenda-item:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transform: translateX(5px);
 }
 
-.programacao-time {
+.agenda-time {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--color-primary);
     min-width: 120px;
 }
 
-.programacao-details {
+.agenda-details {
     flex: 1;
 }
 
-.programacao-details h3 {
+.agenda-details h3 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     color: var(--color-dark);
 }
 
-.programacao-details p {
+.agenda-details p {
     color: var(--color-text-light);
     margin-bottom: 0.5rem;
 }
 
-.programacao-type {
+.agenda-type {
     display: inline-block;
     padding: 0.3rem 0.8rem;
     background: var(--color-light);
@@ -501,14 +501,14 @@ img {
 }
 
 /* CARD BLOQUEADO */
-.programacao-locked {
+.agenda-locked {
     position: relative;
     overflow: hidden;
     pointer-events: none;
 }
 
 /* aplica blur no conteúdo */
-.programacao-locked > *:not(.lock-overlay) {
+.agenda-locked > *:not(.lock-overlay) {
     filter: blur(4px);
     opacity: 0.6;
 }
@@ -539,21 +539,21 @@ img {
     font-size: 1rem;
 }
 
-/* MAPA BLOQUEADO */
-.mapa-locked {
+/* map BLOQUEADO */
+.map-locked {
     position: relative;
     overflow: hidden;
     pointer-events: none;
 }
 
-/* aplica blur apenas no conteúdo do mapa */
-.mapa-locked > *:not(.lock-overlay) {
+/* aplica blur apenas no conteúdo do map */
+.map-locked > *:not(.lock-overlay) {
     filter: blur(4px);
     opacity: 0.6;
 }
 
 /* overlay do cadeado */
-.mapa-locked .lock-overlay {
+.map-locked .lock-overlay {
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.7);
@@ -570,30 +570,30 @@ img {
 }
 
 /* ícone */
-.mapa-locked .lock-icon {
+.map-locked .lock-icon {
     font-size: 2rem;
 }
 
 /* texto */
-.mapa-locked .lock-text {
+.map-locked .lock-text {
     font-size: 1rem;
 }
 
 
 
-/* Expositores Section */
-.expositores-section {
+/* Exhibitors Section */
+.exhibitors-section {
     background: white;
 }
 
-.expositores-grid {
+.exhibitors-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     margin-bottom: 3rem;
 }
 
-.expositor-card {
+.exhibitors-card {
     background: white;
     padding: 2.5rem;
     border-radius: 16px;
@@ -610,18 +610,18 @@ img {
     cursor: pointer;
 }
 
-.expositor-card:hover {
+.exhibitors-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     border-color: var(--color-primary);
 }
 
-.expositor-card * {
+.exhibitors-card * {
     text-decoration: none;
     color: inherit;
 }
 
-.expositor-logo {
+.exhibitors-logo {
     width: 123px;
     height: 123px;
     object-fit: contain;
@@ -630,20 +630,20 @@ img {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.expositor-name {
+.exhibitors-name {
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: var(--color-dark);
 }
 
-.expositor-desc {
+.exhibitors-desc {
     color: var(--color-text-light);
     margin-bottom: 1rem;
     font-size: 0.95rem;
 }
 
-.expositor-category {
+.exhibitors-category {
     display: inline-block;
     padding: 0.4rem 1rem;
     background: var(--color-light);
@@ -654,31 +654,31 @@ img {
     margin-top: auto;
 }
 
-.expositores-cta {
+.exhibitors-cta {
     text-align: center;
     padding: 3rem;
     background: var(--color-light);
     border-radius: 12px;
 }
 
-.expositores-cta p {
+.exhibitors-cta p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     color: var(--color-text-light);
 }
 
-/* Patrocinadores Section */
-.patrocinadores {
+/* Partners Section */
+.partners-section {
     background: var(--color-light);
 }
 
-.patrocinadores-grid {
+.partners-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
-.patrocinador-card {
+.partners-card {
     background: var(--color-white);
     border-radius: 15px;
     padding: 2rem;
@@ -689,13 +689,13 @@ img {
     text-decoration: none;
 }
 
-.patrocinador-card:hover {
+.partners-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     border-color: var(--color-primary);
 }
 
-.patrocinador-logo {
+.partners-logo {
     height: 150px;
     display: flex;
     align-items: center;
@@ -703,7 +703,7 @@ img {
     margin-bottom: 1rem;
 }
 
-.patrocinador-tier {
+.partners-tier {
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -711,26 +711,26 @@ img {
 }
 
 
-/* Mapa Section */
-.mapa-section {
+/* Map Section */
+.map-section {
     background: white;
 }
 
-.mapa-content {
+.map-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 3rem;
     align-items: start;
 }
 
-.mapa-container {
+.map-container {
     background: var(--color-light);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.mapa-placeholder {
+.map-placeholder {
     position: relative;
     min-height: 500px;
     background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
@@ -739,7 +739,7 @@ img {
     justify-content: center;
 }
 
-.mapa-legend {
+.map-legend {
     text-align: center;
     z-index: 2;
     background: white;
@@ -748,18 +748,18 @@ img {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.mapa-legend h3 {
+.map-legend h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: var(--color-dark);
 }
 
-.mapa-legend p {
+.map-legend p {
     color: var(--color-text-light);
     margin: 0.3rem 0;
 }
 
-.mapa-areas {
+.map-areas {
     position: absolute;
     top: 0;
     left: 0;
@@ -767,7 +767,7 @@ img {
     bottom: 0;
 }
 
-.mapa-area {
+.map-area {
     position: absolute;
     cursor: pointer;
 }
@@ -782,32 +782,32 @@ img {
     transition: var(--transition);
 }
 
-.mapa-area:hover .area-marker {
+.map-area:hover .area-marker {
     transform: scale(1.3);
     box-shadow: 0 4px 15px rgba(0, 168, 235, 0.5);
 }
 
-.mapa-area:nth-child(1) .area-marker {
+.map-area:nth-child(1) .area-marker {
     background: var(--color-primary);
 }
 
-.mapa-area:nth-child(2) .area-marker {
+.map-area:nth-child(2) .area-marker {
     background: var(--color-secondary);
 }
 
-.mapa-area:nth-child(3) .area-marker {
+.map-area:nth-child(3) .area-marker {
     background: var(--color-accent1);
 }
 
-.mapa-area:nth-child(4) .area-marker {
+.map-area:nth-child(4) .area-marker {
     background: var(--color-accent2);
 }
 
-.mapa-area:nth-child(5) .area-marker {
+.map-area:nth-child(5) .area-marker {
     background: var(--color-accent3);
 }
 
-.mapa-area:nth-child(6) .area-marker {
+.map-area:nth-child(6) .area-marker {
     background: var(--color-accent4);
 }
 
@@ -827,18 +827,18 @@ img {
     transition: var(--transition);
 }
 
-.mapa-area:hover .area-tooltip {
+.map-area:hover .area-tooltip {
     opacity: 1;
     top: -50px;
 }
 
-.mapa-legend-list {
+.map-legend-list {
     background: var(--color-light);
     padding: 2rem;
     border-radius: 12px;
 }
 
-.mapa-legend-list h3 {
+.map-legend-list h3 {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
     color: var(--color-dark);
@@ -994,15 +994,15 @@ img {
 }
 
 @media (max-width: 768px) {
-    .hero-title {
+    .about-title {
         display: none;
     }
     
-    .hero-title {
+    .about-title {
         font-size: 2.5rem;
     }
 
-    .hero-stats {
+    .about-stats {
         grid-template-columns: 1fr;
     }
 
@@ -1010,20 +1010,20 @@ img {
         font-size: 2rem;
     }
 
-    .horarios-grid {
+    .schedule-grid {
         grid-template-columns: 1fr;
     }
 
-    .expositor-card {
+    .exhibitors-card {
         flex: 0 0 calc((100% - 2rem) / 2);
         min-width: 280px;
     }
 
-    .mapa-content {
+    .map-content {
         grid-template-columns: 1fr;
     }
 
-    .hero-buttons {
+    .about-buttons {
         flex-direction: column;
     }
 
@@ -1046,7 +1046,7 @@ img {
 }
 
 @media (max-width: 480px) {
-    .hero-title {
+    .about-title {
         font-size: 2rem;
     }
 
@@ -1054,16 +1054,16 @@ img {
         font-size: 1.5rem;
     }
 
-    .programacao-item {
+    .agenda-item {
         flex-direction: column;
         gap: 1rem;
     }
 
-    .programacao-time {
+    .agenda-time {
         min-width: auto;
     }
 
-    .expositor-card {
+    .exhibitors-card {
         flex: 0 0 100%;
         min-width: auto;
     }
