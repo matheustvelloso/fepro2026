@@ -30,14 +30,14 @@ navLinks.forEach(link => {
 function animateCounter(element, target, duration = 2000, hasK = false) {
     let start = 0;
     const increment = target / (duration / 16);
-    const suffix = hasK ? 'K+' : '+';
+    const suffix = hasK ? 'k' : '';
     const timer = setInterval(() => {
         start += increment;
         if (start >= target) {
-            element.textContent = target + suffix;
+            element.textContent = '+' + target + suffix;
             clearInterval(timer);
         } else {
-            element.textContent = Math.floor(start) + suffix;
+            element.textContent = '+' + Math.floor(start) + suffix;
         }
     }, 16);
 }
@@ -52,7 +52,7 @@ const statObserver = new IntersectionObserver((entries) => {
             const number = parseInt(text.replace(/\D/g, ''));
             if (number) {
                 entry.target.classList.add('animated');
-                entry.target.textContent = hasK ? '0K+' : '0+';
+                entry.target.textContent = hasK ? '+0K' : '+0';
                 animateCounter(entry.target, number, 2000, hasK);
             }
         }
