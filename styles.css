@@ -221,6 +221,7 @@ img {
     color: var(--color-dark);
     margin-bottom: 2.5rem;
     line-height: 1.8;
+    text-align: center;
 }
 
 .about-buttons {
