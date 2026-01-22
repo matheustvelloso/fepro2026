@@ -152,7 +152,7 @@ body {
 
 /* Hero Section */
 .hero-section{ 
-    min-height: 100vh;
+    min-height: calc(100vh - 72px);
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -161,7 +161,7 @@ body {
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
-    margin-top: 70px;
+    margin-top: 72px;
 }
 
 img {
