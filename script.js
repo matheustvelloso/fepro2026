@@ -197,6 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroContent) {
         heroContent.style.animation = 'fadeInUp 0.8s ease';
     }
+
+    // Initialize countdown
+    initCountdown();
 });
 
 // Add CSS animation keyframes via JavaScript (fallback)
@@ -214,3 +217,61 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ========== COUNTDOWN FUNCTIONALITY ==========
+
+function initCountdown() {
+    // CONFIGURE A DATA DO SEU EVENTO AQUI
+    // Formato: Ano, Mês (0-11, onde 0=Janeiro), Dia, Hora, Minuto
+    const eventDate = new Date(2026, 3, 8, 13, 0, 0); // 08 de Abril de 2026, 13:00
+
+    // Atualiza o texto da data do evento
+    const options = { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    };
+    
+    const eventDateElement = document.getElementById('eventDate');
+    if (eventDateElement) {
+        eventDateElement.textContent = eventDate.toLocaleDateString('pt-BR', options);
+    }
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = eventDate.getTime() - now;
+
+        const countdownGrid = document.querySelector('.countdown-grid');
+        const messageElement = document.getElementById('message');
+
+        if (distance < 0) {
+            // O evento já aconteceu
+            if (countdownGrid) countdownGrid.style.display = 'none';
+            if (messageElement) messageElement.classList.add('show');
+            return;
+        }
+
+        // Cálculos de tempo
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Atualiza os valores na página
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+
+        if (daysElement) daysElement.textContent = String(days).padStart(2, '0');
+        if (hoursElement) hoursElement.textContent = String(hours).padStart(2, '0');
+        if (minutesElement) minutesElement.textContent = String(minutes).padStart(2, '0');
+        if (secondsElement) secondsElement.textContent = String(seconds).padStart(2, '0');
+    }
+
+    // Atualiza a contagem a cada segundo
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
