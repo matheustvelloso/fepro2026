@@ -16,8 +16,8 @@ overlay.addEventListener('click', () => {
     overlay.classList.remove('active');
     menuToggle.classList.remove('active');
 });
-// Close mobile menu when clicking on a link
 
+// Close mobile menu when clicking on a link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -187,7 +187,226 @@ mapaAreas.forEach(area => {
     });
 });
 
-// Initialize on page load
+// ========== CAROUSEL FUNCTIONALITY ==========
+
+class Carousel {
+    constructor(carouselName, desktopCardsPerView = 3) {
+        this.carouselName = carouselName;
+        this.desktopCardsPerView = desktopCardsPerView;
+        this.container = document.querySelector(`.carousel-container[data-carousel="${carouselName}"]`);
+        this.track = this.container?.querySelector('.carousel-track');
+        this.prevBtn = document.querySelector(`.carousel-btn-prev[data-carousel="${carouselName}"]`);
+        this.nextBtn = document.querySelector(`.carousel-btn-next[data-carousel="${carouselName}"]`);
+        this.dotsContainer = document.querySelector(`.carousel-dots[data-carousel="${carouselName}"]`);
+        
+        if (!this.container || !this.track) return;
+        
+        this.cards = Array.from(this.track.children);
+        this.currentIndex = 0;
+        this.cardWidth = 0;
+        this.cardsPerView = 0;
+        this.totalSlides = 0;
+        
+        // Touch/drag variables
+        this.isDragging = false;
+        this.startPos = 0;
+        this.currentTranslate = 0;
+        this.prevTranslate = 0;
+        
+        this.init();
+    }
+    
+    init() {
+        this.calculateDimensions();
+        this.createDots();
+        this.attachEvents();
+        this.updateCarousel();
+        
+        // Recalculate on window resize
+        window.addEventListener('resize', () => {
+            this.calculateDimensions();
+            this.createDots();
+            this.updateCarousel();
+        });
+    }
+    
+    calculateDimensions() {
+        if (!this.cards.length) return;
+        
+        // Get viewport width
+        const viewportWidth = window.innerWidth;
+        
+        // Determine cards per view based on screen size
+        if (viewportWidth <= 480) {
+            // Small mobile: 1 card for both
+            this.cardsPerView = 1;
+        } else if (viewportWidth <= 575) {
+            // Mobile: 1 card for both
+            this.cardsPerView = 1;
+        } else if (viewportWidth <= 768) {
+            // Tablet: 2 cards for both
+            this.cardsPerView = 2;
+        } else {
+            // Desktop: use the defined cardsPerView (3 for both)
+            this.cardsPerView = this.desktopCardsPerView;
+        }
+        
+        // Get card width including gap
+        const cardStyle = window.getComputedStyle(this.cards[0]);
+        const cardWidth = this.cards[0].offsetWidth;
+        const gap = parseInt(window.getComputedStyle(this.track).gap) || 32;
+        
+        this.cardWidth = cardWidth + gap;
+        
+        // Make sure we show at least 1 card
+        this.cardsPerView = Math.max(1, this.cardsPerView);
+        
+        // Calculate total slides (pages)
+        this.totalSlides = Math.ceil(this.cards.length / this.cardsPerView);
+        
+        // Adjust if we're showing all cards
+        if (this.cardsPerView >= this.cards.length) {
+            this.totalSlides = 1;
+        }
+        
+        // Reset to first slide if current index is out of bounds
+        if (this.currentIndex >= this.totalSlides) {
+            this.currentIndex = 0;
+        }
+    }
+    
+    createDots() {
+        if (!this.dotsContainer) return;
+        
+        this.dotsContainer.innerHTML = '';
+        
+        for (let i = 0; i < this.totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-dot');
+            dot.setAttribute('aria-label', `Ir para slide ${i + 1}`);
+            if (i === this.currentIndex) dot.classList.add('active');
+            
+            dot.addEventListener('click', () => this.goToSlide(i));
+            this.dotsContainer.appendChild(dot);
+        }
+    }
+    
+    attachEvents() {
+        // Button navigation
+        this.prevBtn?.addEventListener('click', () => this.prev());
+        this.nextBtn?.addEventListener('click', () => this.next());
+        
+        // Touch events
+        this.track.addEventListener('touchstart', (e) => this.touchStart(e));
+        this.track.addEventListener('touchmove', (e) => this.touchMove(e));
+        this.track.addEventListener('touchend', () => this.touchEnd());
+        
+        // Mouse events
+        this.track.addEventListener('mousedown', (e) => this.touchStart(e));
+        this.track.addEventListener('mousemove', (e) => this.touchMove(e));
+        this.track.addEventListener('mouseup', () => this.touchEnd());
+        this.track.addEventListener('mouseleave', () => this.touchEnd());
+        
+        // Prevent context menu on long press
+        this.track.addEventListener('contextmenu', (e) => {
+            if (this.isDragging) e.preventDefault();
+        });
+    }
+    
+    touchStart(e) {
+        this.isDragging = true;
+        this.startPos = this.getPositionX(e);
+        this.track.style.cursor = 'grabbing';
+        this.track.style.transition = 'none';
+    }
+    
+    touchMove(e) {
+        if (!this.isDragging) return;
+        
+        const currentPosition = this.getPositionX(e);
+        const diff = currentPosition - this.startPos;
+        this.currentTranslate = this.prevTranslate + diff;
+        
+        // Add resistance at boundaries
+        const maxTranslate = 0;
+        const minTranslate = -(this.cardWidth * (this.cards.length - this.cardsPerView));
+        
+        if (this.currentTranslate > maxTranslate) {
+            this.currentTranslate = maxTranslate + (this.currentTranslate - maxTranslate) * 0.3;
+        } else if (this.currentTranslate < minTranslate) {
+            this.currentTranslate = minTranslate + (this.currentTranslate - minTranslate) * 0.3;
+        }
+        
+        this.track.style.transform = `translateX(${this.currentTranslate}px)`;
+    }
+    
+    touchEnd() {
+        if (!this.isDragging) return;
+        
+        this.isDragging = false;
+        this.track.style.cursor = 'grab';
+        this.track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        
+        const movedBy = this.currentTranslate - this.prevTranslate;
+        
+        // If moved enough, go to next/prev
+        if (movedBy < -50 && this.currentIndex < this.totalSlides - 1) {
+            this.next();
+        } else if (movedBy > 50 && this.currentIndex > 0) {
+            this.prev();
+        } else {
+            this.updateCarousel();
+        }
+    }
+    
+    getPositionX(e) {
+        return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    }
+    
+    next() {
+        if (this.currentIndex < this.totalSlides - 1) {
+            this.currentIndex++;
+            this.updateCarousel();
+        }
+    }
+    
+    prev() {
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+            this.updateCarousel();
+        }
+    }
+    
+    goToSlide(index) {
+        this.currentIndex = index;
+        this.updateCarousel();
+    }
+    
+    updateCarousel() {
+        // Calculate translate value
+        const translateX = -this.currentIndex * this.cardWidth * this.cardsPerView;
+        this.track.style.transform = `translateX(${translateX}px)`;
+        
+        this.prevTranslate = translateX;
+        this.currentTranslate = translateX;
+        
+        // Update dots
+        const dots = this.dotsContainer?.querySelectorAll('.carousel-dot');
+        dots?.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentIndex);
+        });
+        
+        // Update button states
+        if (this.prevBtn) {
+            this.prevBtn.disabled = this.currentIndex === 0;
+        }
+        if (this.nextBtn) {
+            this.nextBtn.disabled = this.currentIndex >= this.totalSlides - 1;
+        }
+    }
+}
+
+// Initialize carousels when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial active nav link
     updateActiveNav();
@@ -200,6 +419,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize countdown
     initCountdown();
+    
+    // Initialize carousels with specific cards per view
+    // Exhibitors: 3 cards on desktop
+    const exhibitorsCarousel = new Carousel('exhibitors', 3);
+    // Partners: 3 cards on desktop
+    const partnersCarousel = new Carousel('partners', 3);
 });
 
 // Add CSS animation keyframes via JavaScript (fallback)
