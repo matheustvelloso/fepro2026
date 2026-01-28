@@ -1340,6 +1340,14 @@ img {
         width: calc((100% - 2rem) / 2);
         min-width: 280px;
     }
+
+    .carousel-btn-next{
+        display: none;
+    }
+
+    .carousel-btn-prev{
+        display: none;
+    }
 }
 
 @media (max-width: 575px) { 
