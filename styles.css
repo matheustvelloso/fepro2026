@@ -302,6 +302,56 @@ img {
 }
 
 /* About Section */
+.about-layout {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+  
+  /* vídeo */
+  .about-video {
+    flex: 1;
+    max-width: 420px;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  .about-video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 2px solid var(--color-primary);
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  
+  /* força o embed a respeitar o container */
+  .about-video .instagram-media {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* texto */
+  .about-content {
+    flex: 1.2;
+  }
+  
+  /* RESPONSIVO */
+  @media (max-width: 992px) {
+    .about-layout {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    .about-video {
+      max-width: 100%;
+    }
+  }
+  
 .about-section {
     min-height: 100vh;
     display: flex;
@@ -353,8 +403,8 @@ img {
     font-size: 1.1rem;
     color: var(--color-dark);
     margin-bottom: 2.5rem;
-    line-height: 1.8;
-    text-align: center;
+    line-height: 1.7;
+    text-align: left;
 }
 
 .about-buttons {
@@ -456,6 +506,7 @@ img {
 .section-subtitle {
     font-size: 1.2rem;
     color: var(--color-text-light);
+    font-weight: 600;
 }
 
 /* Horários Section */
@@ -1112,6 +1163,11 @@ img {
 
 /* Responsive Design */
 
+@media (max-width: 992px){
+    .about-description {
+        text-align: center;
+      }
+}
 
 @media (max-width: 940px) {
     .nav-menu {
