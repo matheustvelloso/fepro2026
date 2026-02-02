@@ -938,11 +938,6 @@ img {
 
 /* ========== CAROUSEL STYLES ========== */
 
-/* Exhibitors Section */
-.exhibitors-section {
-    background: white;
-}
-
 /* Carousel Wrapper */
 .carousel-wrapper {
     position: relative;
@@ -954,7 +949,8 @@ img {
     overflow: hidden;
     cursor: grab;
     user-select: none;
-    padding: 10px 4px;
+    border-radius: 16px;
+    padding-top: 10px;
 }
 
 .carousel-container:active {
