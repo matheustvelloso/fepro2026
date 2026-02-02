@@ -1583,6 +1583,9 @@ img {
         width: 100%;
         min-width: 250px;
     }
+    .container{
+        padding: 0 10px;
+    }
 }
 
 @media (max-width: 480px) {
