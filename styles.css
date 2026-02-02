@@ -950,7 +950,7 @@ img {
     cursor: grab;
     user-select: none;
     border-radius: 16px;
-    padding-top: 10px 2px;
+    padding-top: 10px 4px;
 }
 
 .carousel-container:active {
