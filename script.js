@@ -27,33 +27,43 @@ navLinks.forEach(link => {
 });
 
 // Counter animation for stats
-function animateCounter(element, target, duration = 2000, hasK = false) {
+function animateCounter(element, target, duration = 2000, hasDot = false) {
     let start = 0;
     const increment = target / (duration / 16);
-    const suffix = hasK ? 'k' : '';
+
+    const formatWithDot = (value) => {
+        if (!hasDot) return value.toString();
+        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    };
+
     const timer = setInterval(() => {
         start += increment;
+
         if (start >= target) {
-            element.textContent = '+' + target + suffix;
+            element.textContent = '+' + formatWithDot(target);
             clearInterval(timer);
         } else {
-            element.textContent = '+' + Math.floor(start) + suffix;
+            element.textContent = '+' + formatWithDot(Math.floor(start));
         }
     }, 16);
 }
 
+
 // Observe stat cards and animate counters
 const statNumbers = document.querySelectorAll('.stat-number');
+
 const statObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
             const text = entry.target.textContent;
-            const hasK = text.includes('K') || text.includes('k');
-            const number = parseInt(text.replace(/\D/g, ''));
+
+            const hasDot = text.includes('.');
+            const number = parseInt(text.replace(/\D/g, ''), 10);
+
             if (number) {
                 entry.target.classList.add('animated');
-                entry.target.textContent = hasK ? '+0K' : '+0';
-                animateCounter(entry.target, number, 2000, hasK);
+                entry.target.textContent = '+0';
+                animateCounter(entry.target, number, 2000, hasDot);
             }
         }
     });
@@ -62,6 +72,7 @@ const statObserver = new IntersectionObserver((entries) => {
 statNumbers.forEach(stat => {
     statObserver.observe(stat);
 });
+
 
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -500,29 +511,29 @@ function initCountdown() {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-// Seleciona elementos
-const dropdown = document.querySelector('.dropdown');
-const dropdownToggle = document.querySelector('.dropdown-toggle');
-const submenu = document.querySelector('.submenu');
+    // Seleciona elementos
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const submenu = document.querySelector('.submenu');
 
-// Toggle ao clicar (útil para mobile)
-dropdownToggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    dropdown.classList.toggle('active');
-    submenu.classList.toggle('active');
-});
+    // Toggle ao clicar (útil para mobile)
+    dropdownToggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        dropdown.classList.toggle('active');
+        submenu.classList.toggle('active');
+    });
 
-// Fecha ao clicar fora
-document.addEventListener('click', function(e) {
-    if (!dropdown.contains(e.target)) {
+    // Fecha ao clicar fora
+    document.addEventListener('click', function (e) {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('active');
+            submenu.classList.remove('active');
+        }
+    });
+
+    // Alternativa: fecha ao clicar em qualquer lugar do submenu
+    submenu.addEventListener('click', function () {
         dropdown.classList.remove('active');
         submenu.classList.remove('active');
-    }
-});
-
-// Alternativa: fecha ao clicar em qualquer lugar do submenu
-submenu.addEventListener('click', function() {
-    dropdown.classList.remove('active');
-    submenu.classList.remove('active');
-});
+    });
 }
