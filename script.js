@@ -436,6 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const exhibitorsCarousel = new Carousel('exhibitors', 3);
     // Partners: 3 cards on desktop
     const partnersCarousel = new Carousel('partners', 3);
+    const picturesCarousel = new Carousel('pictures', 3);
 });
 
 // Add CSS animation keyframes via JavaScript (fallback)
