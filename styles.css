@@ -1728,6 +1728,10 @@ img {
     .nav-desktop {
         display: none;
     }
+
+    .lotes-container {
+        max-width: 370px;
+    }
 }
 
 @media (max-width: 575px) { 
