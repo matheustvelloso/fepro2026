@@ -1429,7 +1429,7 @@ img {
 }
 
 .turismo-banner > img {
-  max-height: 260px;
+  max-height: 280px;
   object-fit: cover;
   object-position: center center;
 }
