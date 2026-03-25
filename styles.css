@@ -231,7 +231,7 @@ body {
 }
 
 .hero-section > img {
-  max-height: 560px;
+  max-height: 580px;
   object-fit: cover;
   object-position: center center;
 }
