@@ -230,8 +230,11 @@ body {
   margin-top: 72px;
 }
 
-img {
+.hero-section > img {
   width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center center;
 }
 
 /* Countdown Section */
