@@ -578,6 +578,11 @@ function initCountdown() {
       type: "image",
       url: "assets/mapaFepro.jpg",
     },
+
+    visibilityRatio: 1, // impede a imagem de sair dos limites
+    minZoomImageRatio: 1, // zoom mínimo = imagem preenche o container
+    defaultZoomLevel: 1, // começa com a imagem preenchendo tudo
+    constrainDuringPan: true, // trava o pan fora dos limites
     showZoomControl: false,
     showHomeControl: false,
     showFullPageControl: false,
