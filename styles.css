@@ -1832,8 +1832,8 @@ img {
     padding: 1.5rem 0.5rem;
   }
 
-  .map-content {
-    grid-template-columns: 1fr;
+  .map-container {
+    height: 300px;
   }
 
   .carousel-wrapper {
