@@ -17,6 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"></script>
   </head>
 
   <body>
@@ -1751,44 +1752,20 @@
             Localize-se facilmente durante o evento
           </p>
         </div>
-        <div class="map-content">
-          <div class="map-container map-locked">
-            <div class="map-placeholder">
-              <!-- aqui entra o mapa futuramente -->
-            </div>
-            <div class="lock-overlay">
-              <span class="lock-icon">🔒</span>
-              <span class="lock-text">Mapa em breve</span>
-            </div>
-          </div>
-          <div class="map-legend-list">
-            <h3>Locais do Evento</h3>
-            <ul class="legend-items">
-              <li>
-                <span class="legend-color" style="background: #00a8eb"></span>
-                <span>Entrada</span>
-              </li>
-              <li>
-                <span class="legend-color" style="background: #fee612"></span>
-                <span>Encontro Regional de Turismo</span>
-              </li>
-              <li>
-                <span class="legend-color" style="background: #44a03d"></span>
-                <span>Fepro | Corredor</span>
-              </li>
-              <li>
-                <span class="legend-color" style="background: #e32160"></span>
-                <span>Fepro Salão Mix</span>
-              </li>
-              <li>
-                <span class="legend-color" style="background: #e26f2c"></span>
-                <span>Praça de Alimentação</span>
-              </li>
-              <li>
-                <span class="legend-color" style="background: #fc9d79"></span>
-                <span>Salão Noivas e Festas</span>
-              </li>
-            </ul>
+
+        <div id="mapa" class="map-container">
+          <div class="controls">
+            <button id="zoom-in" title="Aumentar">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </button>
+
+            <button id="zoom-out" title="Diminuir">
+              <i class="fa-solid fa-magnifying-glass-minus"></i>
+            </button>
+
+            <button id="reset" title="Voltar ao início">
+              <i class="fa-solid fa-house"></i>
+            </button>
           </div>
         </div>
       </div>
